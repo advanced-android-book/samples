@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.advanced_android.newgithubrepo.viewmodel.RepositoryItemViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:onClick="@{viewModel::onItemClick}"
+        android:orientation="vertical"
+        app:cardUseCompatPadding="true"
+        tools:showIn="@layout/activity_repository_list">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <ImageView
+                android:id="@+id/repo_image"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="8dp"
+                bind:imageUrl="@{viewModel.repoImageUrl}" />
+
+            <TextView
+                android:id="@+id/repo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_toLeftOf="@+id/repo_star_image"
+                android:layout_toRightOf="@id/repo_image"
+                android:text="@{viewModel.repoName}"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                tools:text="title" />
+
+            <TextView
+                android:id="@+id/repo_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/repo_name"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/repo_image"
+                android:maxLines="20"
+                android:text="@{viewModel.repoDetail}"
+                android:textAppearance="@android:style/TextAppearance"
+                tools:text="contents" />
+
+            <TextView
+                android:id="@+id/repo_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="8dp"
+                android:text="@{viewModel.repoStar}"
+                android:textAppearance="@android:style/TextAppearance"
+                tools:text="contents" />
+
+            <ImageView
+                android:id="@id/repo_star_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_toLeftOf="@id/repo_star"
+                android:src="@drawable/ic_star_black_18dp" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+</layout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:tools="http://schemas.android.com/tools"
+       tools:showIn="@layout/activity_repository_list">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_repos"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".view.RepositoryListActivity"
+        tools:listitem="@layout/repo_item"
+        tools:showIn="@layout/activity_repository_list">
+
+    </android.support.v7.widget.RecyclerView>
+</merge>
