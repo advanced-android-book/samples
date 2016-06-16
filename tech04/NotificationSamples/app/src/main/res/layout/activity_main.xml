@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.github.advanced_android.notificationsamples.MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        tools:context="com.github.advanced_android.notificationsamples.MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知タイトルの文字列を設定します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/contentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="builder.setContentTitle()" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知本文の文字列を設定します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/contentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="builder.setContentText()" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知をクリックした時のIntentを設定します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/content_intent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="builder.setContentIntent()" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知を横スライドでキャンセルできないようにする"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/on_going"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.setOnGoing()" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知にアクションを追加します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/action1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 builder.addAction() Android 4.1↑" />
+
+            <CheckBox
+                android:id="@+id/action2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 builder.addAction() Android 4.1↑" />
+
+            <CheckBox
+                android:id="@+id/action3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 builder.addAction() Android 4.1↑" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Android Wear上の通知でアクションを表示します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/extend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.extend() WearableExtender Android 4.4w↑" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知タップ時に自動で通知を消すかどうかを設定します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+
+            <RadioGroup
+                android:id="@+id/autocancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/autocancel_true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="builder.setAutoCancel(true)" />
+
+                <RadioButton
+                    android:id="@+id/autocancel_false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="builder.setAutoCancel(false)" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知表示時にステータスバーに一時情報表示を行う"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/ticker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.setTicker() Android 4.4↓(5.0以降で表示されない)" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知に表示する進捗バーを設定します。"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.setProgress() Android 4.0↑" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知のスタイルを設定します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/big_picture_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.setStyle() BigPictureStyle Android 4.1↑" />
+
+            <CheckBox
+                android:id="@+id/inbox_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.setStyle() InboxStyle Android 4.1↑" />
+
+            <CheckBox
+                android:id="@+id/big_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.setStyle() BigTextStyle Android 4.1↑" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知アイコンの周りに表示する色を設定します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="builder.setColor() Android 5.0↑" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知のロック画面で表示するかどうかなどの公開範囲を指定します(builder.setVisibility() Android 5.0↑)"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <Spinner
+                android:id="@+id/visibility"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通知の重要度を設定します(builder.setPriority() Android 4.1↑)"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <Spinner
+                android:id="@+id/priority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="振動させる設定します"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/vibration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.setVibrate()" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全画面表示 or HeadsUpNotificationする"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <CheckBox
+                android:id="@+id/full_screen_intent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="builder.setFullScreenIntent()" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="build"
+        android:src="@drawable/ic_notifications_24dp" />
+</FrameLayout>

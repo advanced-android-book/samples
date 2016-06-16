@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- メインメニューを定義します　-->
+    <item
+        android:id="@+id/item1"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="@string/menu_item_title1" />
+
+    <item
+        android:id="@+id/item2"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="@string/menu_item_title2" />
+
+    <!-- item内にmenuを入れ子にすることで、サブメニューを定義します　-->
+    <item
+        android:title="@string/sub_menu_title">
+        <menu android:checkableBehavior="single">
+            <item
+                android:id="@+id/sub_menu_item1"
+                android:title="@string/sub_menu_item_title1" />
+            <item
+                android:id="@+id/sub_menu_item2"
+                android:title="@string/sub_menu_item_title2" />
+        </menu>
+    </item>
+
+</menu>
