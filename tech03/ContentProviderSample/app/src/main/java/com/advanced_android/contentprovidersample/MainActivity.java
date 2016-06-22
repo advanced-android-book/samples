@@ -25,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         try {
+            // ContentResolver#queryメソッドはnullを返すケースもあるため、nullチェックを入れる。 #5
             Cursor cursor = getImage();
+            if (cursor == null) {
+                return;
+            }
             if (cursor.moveToFirst()) {
                 // 1. 各カラムの列のインデックスを取得
                 int idColNum = cursor.getColumnIndexOrThrow(ImageColumns._ID);
