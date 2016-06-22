@@ -27,30 +27,31 @@ public class MainActivity extends AppCompatActivity {
         try {
             // ContentResolver#queryメソッドはnullを返すケースもあるため、nullチェックを入れる。 #5
             Cursor cursor = getImage();
-            if (cursor != null) {
-                if (cursor.moveToFirst()) {
-                    // 1. 各カラムの列のインデックスを取得
-                    int idColNum = cursor.getColumnIndexOrThrow(ImageColumns._ID);
-                    int titleColNum = cursor.getColumnIndexOrThrow(ImageColumns.TITLE);
-                    int dateTakenColNum = cursor.getColumnIndexOrThrow(ImageColumns.
-                            DATE_TAKEN);
-                    // 2. インデックスをもとにデータをCursorから取得
-                    long id = cursor.getLong(idColNum);
-                    String title = cursor.getString(titleColNum);
-                    long dateTaken = cursor.getLong(dateTakenColNum);
-                    Uri imageUri = ContentUris.withAppendedId(Media.EXTERNAL_CONTENT_URI, id);
-                    // 3. データをViewに設定
-                    TextView textView = (TextView) findViewById(R.id.textView);
-                    ImageView imageView = (ImageView) findViewById(R.id.imageView);
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(dateTaken);
-                    String text = DateFormat.format("yyyy/MM/dd(E) kk:mm:ss", calendar).
-                            toString();
-                    textView.setText("撮影日時: " + text);
-                    imageView.setImageURI(imageUri);
-                }
-                cursor.close();
+            if (cursor == null) {
+                return;
             }
+            if (cursor.moveToFirst()) {
+                // 1. 各カラムの列のインデックスを取得
+                int idColNum = cursor.getColumnIndexOrThrow(ImageColumns._ID);
+                int titleColNum = cursor.getColumnIndexOrThrow(ImageColumns.TITLE);
+                int dateTakenColNum = cursor.getColumnIndexOrThrow(ImageColumns.
+                        DATE_TAKEN);
+                // 2. インデックスをもとにデータをCursorから取得
+                long id = cursor.getLong(idColNum);
+                String title = cursor.getString(titleColNum);
+                long dateTaken = cursor.getLong(dateTakenColNum);
+                Uri imageUri = ContentUris.withAppendedId(Media.EXTERNAL_CONTENT_URI, id);
+                // 3. データをViewに設定
+                TextView textView = (TextView) findViewById(R.id.textView);
+                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(dateTaken);
+                String text = DateFormat.format("yyyy/MM/dd(E) kk:mm:ss", calendar).
+                        toString();
+                textView.setText("撮影日時: " + text);
+                imageView.setImageURI(imageUri);
+            }
+            cursor.close();
         } catch (SecurityException e) {
             Toast.makeText(this, "ストレージの権限を許可にしてください。（終了します)", Toast.LENGTH_LONG).show();
             finish();
