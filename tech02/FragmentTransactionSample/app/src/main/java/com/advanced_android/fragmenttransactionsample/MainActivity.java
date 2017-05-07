@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String FRAGMENT_TAG = "FRAGMENT_TAG";
@@ -17,11 +19,15 @@ public class MainActivity extends AppCompatActivity {
         public void onBackStackChanged() {
             FragmentManager fragmentManager = getSupportFragmentManager();
             int count = 0;
-            for (Fragment f: fragmentManager.getFragments()) {
-                if (f != null) {
-                    count++;
-                }
-            }
+			List<Fragment> fragments = fragmentManager.getFragments();
+            // nullチェックを入れる #8
+            if (fragments != null) {
+				for (Fragment f : fragments) {
+					if (f != null) {
+						count++;
+					}
+				}
+			}
             mNumber = count;
             Log.d("MainActivity", "onBackStackChanged mNumber=" + mNumber);
         }
