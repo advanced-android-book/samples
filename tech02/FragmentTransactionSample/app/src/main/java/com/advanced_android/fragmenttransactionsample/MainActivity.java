@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         public void onBackStackChanged() {
             FragmentManager fragmentManager = getSupportFragmentManager();
             int count = 0;
-			List<Fragment> fragments = fragmentManager.getFragments();
+            List<Fragment> fragments = fragmentManager.getFragments();
             // nullチェックを入れる #8
             if (fragments != null) {
 				for (Fragment f : fragments) {
