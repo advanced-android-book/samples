@@ -22,12 +22,12 @@ public class MainActivity extends AppCompatActivity {
             List<Fragment> fragments = fragmentManager.getFragments();
             // nullチェックを入れる #8
             if (fragments != null) {
-				for (Fragment f : fragments) {
-					if (f != null) {
-						count++;
-					}
-				}
-			}
+                for (Fragment f : fragments) {
+                    if (f != null) {
+                        count++;
+                    }
+                }
+            }
             mNumber = count;
             Log.d("MainActivity", "onBackStackChanged mNumber=" + mNumber);
         }
