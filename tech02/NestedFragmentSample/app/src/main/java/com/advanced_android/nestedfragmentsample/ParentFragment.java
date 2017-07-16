@@ -74,12 +74,12 @@ public class ParentFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onActivityCreated(savedInstanceState);
         Log.d("ParentFragment", "onActivityCreated");
         if (savedInstanceState != null) {
             mNumber = savedInstanceState.getInt(KEY_NUMBER, 0);
